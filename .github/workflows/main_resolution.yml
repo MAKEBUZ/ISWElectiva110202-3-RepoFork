@@ -25,19 +25,16 @@ jobs:
           python-version: '3.13'
 
       - name: Create and start virtual environment
-        working-directory: backend
         run: |
           python -m venv venv
           source venv/bin/activate
       
       - name: Install dependencies
-        working-directory: backend
         run: pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Zip artifact for deployment
-        working-directory: backend
         run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment jobs
@@ -45,7 +42,7 @@ jobs:
         with:
           name: python-app
           path: |
-            backend/release.zip
+            release.zip
             !venv/
 
   deploy:
@@ -71,9 +68,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_58FA5D5B87F041EEA2C0E8A39B1FC4D9 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_DD88D57FD94648A5858E8EE55EA33AE1 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_1703D590C22E4A73BAA06875435DCA8C }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_F63B13FD81C448FF9EF7D23BC26B14FB }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E904DFB141084CF4824135D3BAD2CCF8 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_05DC6C47A87245F3B624E9DB2666C694 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
