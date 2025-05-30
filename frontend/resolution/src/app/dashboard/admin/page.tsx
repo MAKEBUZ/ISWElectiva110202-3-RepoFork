@@ -70,7 +70,7 @@ export default function AdminPage() {
     try {
       const token = localStorage.getItem('authToken');
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/admin?user_id=${user.id}`,
+        `${process.env.NEXT_PUBLIC_API_URL || 'https://resolution-bpgahmfegshxeqbf.canadacentral-01.azurewebsites.net'}/api/admin?user_id=${user.id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -92,7 +92,7 @@ export default function AdminPage() {
     try {
       const token = localStorage.getItem('authToken');
       await axios.patch(
-        `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/admin`,
+        `${process.env.NEXT_PUBLIC_API_URL || 'https://resolution-bpgahmfegshxeqbf.canadacentral-01.azurewebsites.net'}/api/admin`,
         {
           user_id: user.id,
           type: type,
