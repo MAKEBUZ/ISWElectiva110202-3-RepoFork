@@ -1,4 +1,4 @@
-const API_URL = 'resolution-bpgahmfegshxeqbf.canadacentral-01.azurewebsites.net/api';
+const API_URL = 'https://resolution-bpgahmfegshxeqbf.canadacentral-01.azurewebsites.net//api';
 
 interface ApiError {
   message: string;
